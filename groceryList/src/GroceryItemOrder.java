@@ -3,10 +3,11 @@ public class GroceryItemOrder {
     double price;
     int amount;
     int id;
-    public GroceryItemOrder(String name, int price, int id) {
+    public GroceryItemOrder(String name, double price, int amount, int id) {
         this.price = price;
         this.name = name;
         this.id = id;
+        this.amount = amount;
 
     }
 }
