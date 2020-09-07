@@ -38,15 +38,15 @@ public class GroceryList {
             System.out.println("Der er ikke plads til mere på indkøbslisten!");
             return;
         }
-        System.out.println("Indtast ID");
+        System.out.println("Enter item ID");
         int id = ui.scanInt() -1; // -1 tager højde for at array starter på 0
-        System.out.println("Indtast mængde");
+        System.out.println("Enter item amount");
         int amount = ui.scanInt();
         products[i] = productCatalog[id]; // tager valgte objekt fra vare array plads og kloner den til liste array
-        products[id].setAmount(amount); // ændrer mængde, hvorfor ændrer der productCatalog og ikke kun products????
+        products[i].setAmount(amount);
         i++;
     }
-    public double getTotalCost() { //skal regne priser på varer sammen - metoden er gjort overflødig med toStringList
+    public double getTotalCost() { //skal regne priser på varer sammen, mangler null check
         double totalCost = 0;
         for (int i = 0; i < products.length; i++) {
             totalCost += products[i].getPrice();
@@ -67,9 +67,9 @@ public class GroceryList {
     public String toStringList() { // begge toString burde have metode til at finde null objekter
         String returnString = "";
         for (int i = 0; i < products.length; i++) {
-            if (!(products[i] == null))
-            returnString = returnString + "ID: " + products[i].getId() + " - " + products[i].getName() + " - amount: " + products[i].getAmount() + "  -  " + products[i].getPrice()*products[i].getAmount() + "KR.\n";
-
+            if (!(products[i] == null)) {
+                returnString += returnString + "ID: " + products[i].getId() + " - " + products[i].getName() + " - amount: " + products[i].getAmount() + "  -  " + products[i].getPrice() * products[i].getAmount() + "KR.\n";
+            }
         }
         return returnString;
     }
