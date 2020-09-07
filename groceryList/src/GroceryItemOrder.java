@@ -13,8 +13,9 @@ public class GroceryItemOrder {
 
 
     public double getPrice() { // returnerer pris for mængden af en vare
-        return price*amount;
+        return price;
     }
+
 
     public String getName() {
         return name;
@@ -25,7 +26,7 @@ public class GroceryItemOrder {
     }
 
     public void setAmount(int amount) {
-        this.amount = amount;
+        this.amount = amount; // fix så det kun er indkøbslisten der sættes og ikke kataloget
     }
     public int getId() {
         return id;
